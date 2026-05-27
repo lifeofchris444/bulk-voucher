@@ -10,7 +10,7 @@ export function CTA() {
     <section id="apply" ref={sectionRef} className="pt-12 pb-16 sm:pt-16 sm:pb-20 px-4 bg-card">
       <div className="max-w-4xl mx-auto">
         <div
-          className={`relative bg-[#0071ce] rounded-3xl p-8 sm:p-12 text-center overflow-hidden transition-all duration-700 ease-out ${
+          className={`relative bg-[#005daa] rounded-3xl p-8 sm:p-12 text-center overflow-hidden transition-all duration-700 ease-out ${
             sectionVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-[0.98]"
           }`}
         >
@@ -61,7 +61,7 @@ export function CTA() {
               }`}
               style={{ transitionDelay: sectionVisible ? "400ms" : "0ms" }}
             >
-              Join thousands of shoppers who have already claimed their $750 gift card. Your savings are just a few clicks away.
+              Join thousands of members who have already claimed their $750 gift card. Your savings are just a few clicks away.
             </p>
             
             <div
@@ -71,10 +71,10 @@ export function CTA() {
               style={{ transitionDelay: sectionVisible ? "500ms" : "0ms" }}
             >
               <a
-                href="https://trksy.org/aff_c?offer_id=1913&aff_id=26188&source=222"
+                href="https://trksy.org/aff_c?offer_id=1323&aff_id=26188&source=111"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-button group inline-flex items-center gap-3 bg-white text-[#0071ce] px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/95 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+                className="touch-button group inline-flex items-center gap-3 bg-white text-[#005daa] px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/95 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
               >
                 APPLY NOW
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />

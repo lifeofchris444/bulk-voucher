@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex items-center justify-center overflow-hidden pt-6 pb-4 sm:pt-8 sm:pb-6 px-4 min-h-[60vh] sm:min-h-[70vh]"
+      className="relative flex items-center justify-center overflow-hidden pt-8 pb-6 sm:pt-12 sm:pb-8 px-4"
     >
       {/* Subtle background shapes with gentle floating animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -26,7 +26,7 @@ export function Hero() {
           }`}
         >
           The{" "}
-          <span className="text-[#0071ce] font-semibold">Walmart Method</span>{" "}
+          <span className="text-[#005daa] font-semibold">Costco Method</span>{" "}
           That&apos;s Changing Everything
         </h1>
 
@@ -36,7 +36,7 @@ export function Hero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Discover how people are saving big on everyday essentials, tech, home items, and more.
+          Discover how people are saving big on bulk essentials, electronics, home items, and everyday needs.
         </p>
 
         {/* CTA Button */}
@@ -46,10 +46,10 @@ export function Hero() {
           }`}
         >
           <a
-            href="https://trksy.org/aff_c?offer_id=1913&aff_id=26188&source=222"
+            href="https://trksy.org/aff_c?offer_id=1323&aff_id=26188&source=111"
             target="_blank"
             rel="noopener noreferrer"
-            className="touch-button group inline-flex items-center gap-3 bg-[#0071ce] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#005ba1] transition-all duration-300 hover:shadow-xl hover:shadow-[#0071ce]/20 hover:-translate-y-0.5"
+            className="touch-button group inline-flex items-center gap-3 bg-[#005daa] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#004a8a] transition-all duration-300 hover:shadow-xl hover:shadow-[#005daa]/20 hover:-translate-y-0.5"
           >
             APPLY NOW
             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -66,23 +66,23 @@ export function Hero() {
           <div className="flex items-center -space-x-2">
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/db4211add066b155f0b8dc5ad01869db-lfULDC2IvdA6knBfNHsHwdcQwAYITZ.jpg"
-              alt="Shopper"
+              alt="Member"
               className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-background shadow-sm object-cover"
             />
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4c05f6b9b049c6f69fbbd32e7fc4ec7-1MCtNdiHFnD1LCzngLZURPXhURSuaY.jpg"
-              alt="Shopper"
+              alt="Member"
               className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-background shadow-sm object-cover"
             />
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e25146a3cc2b7182546f7b937949cd66-zmZh8BJSJoY02jf5FaL6iUUgbcUwaD.jpg"
-              alt="Shopper"
+              alt="Member"
               className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-background shadow-sm object-cover"
             />
           </div>
           <p className="text-sm text-muted-foreground/70 font-medium">
-            <span className="sm:hidden">Join 12,000+ shoppers who&apos;ve<br />already claimed their rewards.</span>
-            <span className="hidden sm:inline">Join 12,000+ shoppers who&apos;ve already claimed their rewards.</span>
+            <span className="sm:hidden">Join 12,000+ members who&apos;ve<br />already claimed their rewards.</span>
+            <span className="hidden sm:inline">Join 12,000+ members who&apos;ve already claimed their rewards.</span>
           </p>
         </div>
       </div>

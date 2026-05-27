@@ -10,8 +10,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Walmart Method",
-  description: "Discover how people are unlocking up to $750 in Walmart rewards. Complete simple steps and claim your gift card today.",
+  title: "Costco Method",
+  description: "Discover how people are unlocking up to $750 in Costco rewards. Complete simple steps and claim your gift card today.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -25,26 +25,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Walmart Method",
-    description: "Unlock up to $750 in Walmart rewards with a simple process.",
-    siteName: "Walmart Method",
+    title: "Costco Method",
+    description: "Unlock up to $750 in Costco rewards with a simple process.",
+    siteName: "Costco Method",
     images: [
       {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6859811db8c0679449725597_new-Walmart-logo-01-q4bSMtQp8YRVUjJtK8NQAs5C3ye3n8.png",
-        width: 1000,
-        height: 1000,
-        alt: "Walmart Logo",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Costco Method - $750 Gift Card Rewards",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Walmart Method",
-    description: "Unlock up to $750 in Walmart rewards with a simple process.",
-    images: ["https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6859811db8c0679449725597_new-Walmart-logo-01-q4bSMtQp8YRVUjJtK8NQAs5C3ye3n8.png"],
+    title: "Costco Method",
+    description: "Unlock up to $750 in Costco rewards with a simple process.",
+    images: ["/og-image.jpg"],
   },
   other: {
-    "apple-mobile-web-app-title": "Walmart Method",
+    "apple-mobile-web-app-title": "Costco Method",
   },
 }
 

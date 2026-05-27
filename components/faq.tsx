@@ -58,7 +58,7 @@ export function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`bg-card border border-border/60 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#0071ce]/30 touch-card ${
+              className={`bg-card border border-border/60 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#005daa]/30 touch-card ${
                 sectionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{
@@ -71,15 +71,15 @@ export function FAQ() {
                 onClick={() => toggleAccordion(index)}
                 className="touch-expand w-full flex items-center gap-4 p-6 text-left cursor-pointer group rounded-2xl"
               >
-                <div className="touch-icon flex-shrink-0 w-12 h-12 bg-muted rounded-xl flex items-center justify-center group-hover:bg-[#0071ce]/10 transition-colors duration-200">
-                  <faq.icon className="w-6 h-6 text-foreground/70 group-hover:text-[#0071ce] transition-colors duration-200" strokeWidth={1.5} />
+                <div className="touch-icon flex-shrink-0 w-12 h-12 bg-muted rounded-xl flex items-center justify-center group-hover:bg-accent transition-colors duration-200">
+                  <faq.icon className="w-6 h-6 text-foreground/70" strokeWidth={1.5} />
                 </div>
                 <span className="flex-1 font-semibold text-foreground text-lg">
                   {faq.question}
                 </span>
-                <div className="touch-icon flex-shrink-0 w-10 h-10 bg-muted rounded-full flex items-center justify-center group-hover:bg-[#0071ce]/10 transition-colors duration-200">
+                <div className="touch-icon flex-shrink-0 w-10 h-10 bg-muted rounded-full flex items-center justify-center group-hover:bg-accent transition-colors duration-200">
                   <ChevronDown
-                    className={`w-5 h-5 text-foreground/70 group-hover:text-[#0071ce] transition-all duration-300 ease-out ${
+                    className={`w-5 h-5 text-foreground/70 transition-transform duration-300 ease-out ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                     strokeWidth={1.5}

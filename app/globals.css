@@ -10,20 +10,20 @@
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(0.995 0 0);
   --popover-foreground: oklch(0.15 0 0);
-  --primary: oklch(0.55 0.18 240);
+  --primary: oklch(0.42 0.15 250);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.95 0.01 240);
+  --secondary: oklch(0.95 0.01 250);
   --secondary-foreground: oklch(0.15 0 0);
   --muted: oklch(0.93 0 0);
   --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.94 0.03 240);
+  --accent: oklch(0.92 0.03 250);
   --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.55 0.21 25);
+  --destructive: oklch(0.50 0.21 25);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.91 0 0);
   --input: oklch(0.93 0 0);
-  --ring: oklch(0.55 0.18 240);
-  --chart-1: oklch(0.55 0.18 240);
+  --ring: oklch(0.42 0.15 250);
+  --chart-1: oklch(0.42 0.15 250);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
@@ -31,13 +31,13 @@
   --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.55 0.18 240);
+  --sidebar-primary: oklch(0.42 0.15 250);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.94 0.03 240);
+  --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.55 0.18 240);
-  --walmart-blue: #0071ce;
+  --sidebar-ring: oklch(0.42 0.15 250);
+  --costco-blue: #005daa;
 }
 
 .dark {
@@ -388,24 +388,16 @@
     transform: scale(1.1);
   }
   
-  .group:active .group-hover\:bg-\[\#0071ce\] {
-    background-color: #0071ce;
-  }
-  
-  .group:active .group-hover\:bg-\[\#0071ce\]\/10 {
-    background-color: rgba(0, 113, 206, 0.1);
+  .group:active .group-hover\:bg-\[\#005daa\] {
+    background-color: #005daa;
   }
   
   .group:active .group-hover\:text-white {
     color: white;
   }
   
-  .group:active .group-hover\:text-\[\#0071ce\] {
-    color: #0071ce;
-  }
-  
-  .group:active .group-hover\:border-\[\#0071ce\]\/40 {
-    border-color: rgba(0, 113, 206, 0.4);
+  .group:active .group-hover\:border-\[\#005daa\]\/40 {
+    border-color: rgba(0, 93, 170, 0.4);
   }
 }
 
