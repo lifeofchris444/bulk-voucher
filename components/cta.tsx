@@ -71,7 +71,7 @@ export function CTA() {
               style={{ transitionDelay: sectionVisible ? "500ms" : "0ms" }}
             >
               <a
-                href="https://trksy.org/aff_c?offer_id=1323&aff_id=26188&source=111"
+                href="https://trksy.org/aff_c?offer_id=4171&aff_id=26188"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="touch-button group inline-flex items-center gap-3 bg-white text-[#005daa] px-10 py-5 rounded-full text-lg font-semibold hover:bg-white/95 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
