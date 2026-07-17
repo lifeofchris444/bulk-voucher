@@ -9,28 +9,28 @@ const features = [
     secondaryIcon: ShoppingCart,
     title: "Bulk Essentials",
     description:
-      "Stock up on groceries, household goods, and everyday necessities in bulk.",
+      "Apply your discount code to groceries, household goods, and everyday necessities in bulk.",
   },
   {
     icon: Tv,
     secondaryIcon: Sparkles,
     title: "Electronics & Tech",
     description:
-      "Shop phones, TVs, tablets, headphones, and top tech products.",
+      "Use your code on phones, TVs, tablets, headphones, and top tech products.",
   },
   {
     icon: Home,
     secondaryIcon: Sofa,
     title: "Home & Furniture",
     description:
-      "Upgrade your home with furniture, decor, and large appliances.",
+      "Redeem your discount on furniture, decor, and large appliances for your home.",
   },
   {
     icon: ShoppingCart,
     secondaryIcon: Shirt,
     title: "Everyday Value",
     description:
-      "Save on clothing, accessories, and must-have essentials.",
+      "Unlock extra savings on clothing, accessories, and must-have essentials.",
   },
 ];
 
@@ -49,7 +49,7 @@ export function Features() {
             Unlock Rewards
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mt-3 max-w-2xl mx-auto text-balance">
-            What You Can Do With Your $750 Gift Card
+            What You Can Do With Your Summer Discount Code
           </h2>
         </div>
 

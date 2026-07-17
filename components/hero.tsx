@@ -26,8 +26,8 @@ export function Hero() {
           }`}
         >
           The{" "}
-          <span className="text-[#005daa] font-semibold">Costco Method</span>{" "}
-          That&apos;s Changing Everything
+          <span className="text-[#005daa] font-semibold">Costco Discounts</span>{" "}
+          They Don&apos;t Advertise
         </h1>
 
         {/* Subheadline */}
@@ -36,7 +36,7 @@ export function Hero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Discover how people are saving big on bulk essentials, electronics, home items, and everyday needs.
+          Discover how members are unlocking hidden discount codes on bulk essentials, electronics, home items, and everyday needs
         </p>
 
         {/* CTA Button */}
@@ -46,7 +46,7 @@ export function Hero() {
           }`}
         >
           <a
-            href="https://trksy.org/aff_c?offer_id=4171&aff_id=26188"
+            href="https://trksy.org/aff_c?offer_id=1323&aff_id=26188"
             target="_blank"
             rel="noopener noreferrer"
             className="touch-button group inline-flex items-center gap-3 bg-[#005daa] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#004a8a] transition-all duration-300 hover:shadow-xl hover:shadow-[#005daa]/20 hover:-translate-y-0.5"
@@ -81,8 +81,8 @@ export function Hero() {
             />
           </div>
           <p className="text-sm text-muted-foreground/70 font-medium">
-            <span className="sm:hidden">Join 12,000+ members who&apos;ve<br />already claimed their rewards.</span>
-            <span className="hidden sm:inline">Join 12,000+ members who&apos;ve already claimed their rewards.</span>
+            <span className="sm:hidden">Join 12,000+ members who&apos;ve<br />already claimed their discounts.</span>
+            <span className="hidden sm:inline">Join 12,000+ members who&apos;ve already claimed their discounts.</span>
           </p>
         </div>
       </div>
