@@ -13,7 +13,7 @@ const SITE_URL = "https://www.costcodiscounts.com"
 const SITE_NAME = "Costco Discounts"
 const TITLE = "The Costco Discounts They Don't Advertise"
 const DESCRIPTION =
-  "Discover how members are unlocking hidden discount codes on bulk essentials, electronics, home items, and everyday needs. Complete 5+ deals in five simple steps and get your discount delivered straight to your inbox."
+  "Discover how members are unlocking hidden discount codes on bulk groceries and pantry staples, electronics and TVs, home and furniture, and gas, tires, and auto care. Complete 5+ deals in five simple steps and get your discount delivered straight to your inbox."
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -24,12 +24,15 @@ export const metadata: Metadata = {
     "Costco discount code",
     "Costco promo code",
     "Costco discounts",
-    "Costco deals",
-    "Costco rewards program",
-    "bulk grocery deals",
-    "tech and electronics deals",
-    "home and kitchen deals",
-    "household bulk deals",
+    "Costco coupons",
+    "Costco membership deals",
+    "Costco warehouse deals",
+    "bulk grocery and pantry deals",
+    "electronics and TV deals",
+    "home and furniture deals",
+    "Costco gas discounts",
+    "Costco gas prices",
+    "gas, tires and auto care deals",
   ],
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
@@ -59,9 +62,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
-        width: 1024,
+        width: 1536,
         height: 1024,
-        alt: "Bulk paper towels, canned goods, a snack box, an air fryer, a tablet, earbuds, and bedding floating on a blue background",
+        alt: "A bulk multi-pack of pantry goods and a large bag of coffee beans, a stack of paper towel rolls, a slim flat-screen 4K television, a folded gray upholstered cushion and rolled mattress topper, a red portable fuel can, and a black car tire with a silver rim arranged on a deep Costco blue and dark navy background",
       },
     ],
   },

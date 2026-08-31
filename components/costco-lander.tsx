@@ -1,13 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 
-const AFFILIATE_LINK = "https://trksy.org/aff_c?offer_id=1323&aff_id=26188"
+const AFFILIATE_LINK = "https://trksy.org/aff_c?offer_id=4452&aff_id=26188"
 
-const BLUE = "#004A8A"
-const BLUE_DEEP = "#002B52"
-const BLUE_BRIGHT = "#1D6BB5"
+const COSTCO = "#004A8A"
+const COSTCO_DEEP = "#001A33"
+const COSTCO_BRIGHT = "#3D91D6"
 const INK = "#111213"
 
 const STEPS = [
@@ -34,26 +33,42 @@ const STEPS = [
   },
 ]
 
+const CART_ICON =
+  "M2.5 4.5h2.7l3 11.2h10 M6.9 7.8h13.9l-1.9 6.4H8.6 M11.6 17.8a1.5 1.5 0 100 3 1.5 1.5 0 000-3 M17.8 17.8a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
+
+const TV_ICON = "M3 5.2h18v10.6H3z M9 19.4h6 M12 15.8v3.6"
+
+const SOFA_ICON =
+  "M4 18.6v-5.4a2 2 0 014 0v2.4h8v-2.4a2 2 0 014 0v5.4z M6.2 13.2V9.8a2.2 2.2 0 012.2-2.2h7.2a2.2 2.2 0 012.2 2.2v3.4"
+
+const TIRE_ICON =
+  "M12 3.4a8.6 8.6 0 100 17.2 8.6 8.6 0 000-17.2 M12 8.2a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6 M12 3.4v4.8 M12 15.8v4.8 M3.4 12h4.8 M15.8 12h4.8 M14.7 14.7l3.4 3.4 M9.3 14.7l-3.4 3.4 M14.7 9.3l3.4-3.4 M9.3 9.3L5.9 5.9"
+
+// Fuel pump: body + base + display window + hose arm. Gas leads the category title, so this
+// replaces the wheel on the card (the wheel still drifts in the hero background).
+const FUEL_ICON =
+  "M5.4 20.6V5.2a2 2 0 012-2h5.6a2 2 0 012 2v15.4 M3.6 20.6h13.2 M8 7h4.4v3.2H8z M8 13.6h4.4 M15 10.4h2.4a2 2 0 012 2v4.8a1.6 1.6 0 003.2 0v-6.4"
+
 const CATEGORIES = [
   {
-    t: "Bulk Groceries",
-    d: "Bulk pantry packs, snack boxes, and beverage cases.",
-    icon: "M4 6h2l2.4 10.5a1 1 0 001 .8h8.6a1 1 0 001-.8L21 9H7 M9 21a1 1 0 100-2 1 1 0 000 2z M17 21a1 1 0 100-2 1 1 0 000 2z",
+    t: "Bulk Groceries & Pantry",
+    d: "Pantry staples, snacks, coffee, paper goods, and multi-pack essentials.",
+    icon: CART_ICON,
   },
   {
-    t: "Tech & Electronics",
-    d: "Earbuds, soundbars, and tablets.",
-    icon: "M7 3h10a1 1 0 011 1v16a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z M11 18h2",
+    t: "Electronics & TVs",
+    d: "4K televisions, laptops, tablets, headphones, and smart home devices.",
+    icon: TV_ICON,
   },
   {
-    t: "Home & Kitchen",
-    d: "Air fryers, bedding sets, and cookware.",
-    icon: "M4 11l8-7 8 7 M6 9.5V20h12V9.5",
+    t: "Home & Furniture",
+    d: "Mattresses, patio sets, kitchen appliances, and living room seating.",
+    icon: SOFA_ICON,
   },
   {
-    t: "Household in Bulk",
-    d: "Paper goods, laundry packs, and cleaning supplies.",
-    icon: "M5 8h14a1 1 0 011 1v11a1 1 0 01-1 1H5a1 1 0 01-1-1V9a1 1 0 011-1z M4 13h16 M10 16h4 M9 8V6a3 3 0 016 0v2",
+    t: "Gas, Tires & Auto Care",
+    d: "Discounted fuel at the pump, tire installation, batteries, and rotation service.",
+    icon: FUEL_ICON,
   },
 ]
 
@@ -72,13 +87,19 @@ const FAQS = [
   },
 ]
 
+// Avatars are pre-sized to 160x160 WebP (~5KB each) and rendered with a plain <img>.
+// Do NOT swap these for full-resolution PNGs or next/image: multi-megabyte sources routed
+// through the deployed image optimizer are what made these silently break in production.
 const AVATARS = [
-  { src: "/avatars/avatar-1.png", alt: "Shopper with blonde hair in a grey sweater" },
-  { src: "/avatars/avatar-2.png", alt: "Shopper with auburn hair in an olive shirt" },
-  { src: "/avatars/avatar-3.png", alt: "Shopper with dark hair in a white t-shirt" },
+  {
+    src: "/avatars/costco-member-1.webp",
+    alt: "Smiling woman in her forties with shoulder-length brown hair",
+  },
+  { src: "/avatars/costco-member-2.webp", alt: "Smiling Black man in his fifties with a short gray beard" },
+  { src: "/avatars/costco-member-3.webp", alt: "Smiling Asian man in his thirties in a gray crewneck sweater" },
 ]
 
-function Icon({ d, className = "w-6 h-6", color = BLUE }: { d: string; className?: string; color?: string }) {
+function Icon({ d, className = "w-6 h-6", color = COSTCO }: { d: string; className?: string; color?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -114,7 +135,7 @@ function CTAButton({
       className={`cta-btn group inline-flex items-center gap-2 rounded-full font-semibold ${
         large ? "px-9 py-4 text-lg" : "px-7 py-3.5 text-base"
       }`}
-      style={dark ? { backgroundColor: BLUE, color: "#FFFFFF" } : { backgroundColor: "#FFFFFF", color: INK }}
+      style={dark ? { backgroundColor: COSTCO, color: "#FFFFFF" } : { backgroundColor: "#FFFFFF", color: INK }}
     >
       {children}
       <svg
@@ -141,7 +162,7 @@ function TimelineRow({ step, index }: { step: (typeof STEPS)[number]; index: num
         className={`hidden md:flex items-center ${leftSide ? "md:order-3 justify-start" : "md:order-1 justify-end"}`}
         aria-hidden="true"
       >
-        <span className="font-black text-6xl lg:text-7xl leading-none select-none" style={{ color: "#E7EFF7" }}>
+        <span className="font-black text-6xl lg:text-7xl leading-none select-none" style={{ color: "#CFE3F5" }}>
           0{index + 1}
         </span>
       </div>
@@ -150,10 +171,10 @@ function TimelineRow({ step, index }: { step: (typeof STEPS)[number]; index: num
         <div
           className="t-node w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold text-sm z-10"
           style={{
-            backgroundColor: BLUE,
-            borderColor: BLUE,
+            backgroundColor: COSTCO,
+            borderColor: COSTCO,
             color: "#FFFFFF",
-            boxShadow: "0 8px 22px rgba(0,74,138,.35)",
+            boxShadow: "0 8px 22px rgba(0,74,138,.34)",
           }}
         >
           {index + 1}
@@ -168,9 +189,9 @@ function TimelineRow({ step, index }: { step: (typeof STEPS)[number]; index: num
         <div className={`flex items-start gap-4 ${leftSide ? "md:flex-row-reverse md:text-right" : ""}`}>
           <div
             className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center"
-            style={{ backgroundColor: "#E3EDF6" }}
+            style={{ backgroundColor: "#E2EEFA" }}
           >
-            <Icon d={step.icon} color={BLUE} className="w-6 h-6" />
+            <Icon d={step.icon} color={COSTCO} className="w-6 h-6" />
           </div>
           <div className="flex-1">
             <h3 className="font-bold text-lg leading-snug">{step.t}</h3>
@@ -208,7 +229,7 @@ export default function CostcoRewardLander() {
         .cat-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 24px 48px rgba(17,18,19,0.12); }
         .cat-card:hover .cat-icon { transform: translateY(-4px) rotate(4deg) scale(1.08); }
         .cat-icon { transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
-        .card-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(0,74,138,0.05) 47%, rgba(255,255,255,0.55) 52%, transparent 65%); background-size: 260% 100%; animation: cardShine 7s ease-in-out infinite; }
+        .card-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(0,74,138,0.06) 47%, rgba(255,255,255,0.55) 52%, transparent 65%); background-size: 260% 100%; animation: cardShine 7s ease-in-out infinite; }
         @keyframes cardShine { 0%, 55% { background-position: 135% 0; } 85%, 100% { background-position: -60% 0; } }
         .icon-bob { animation: iconBob 4.5s ease-in-out infinite; }
         @keyframes iconBob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-5px) rotate(-5deg); } }
@@ -223,8 +244,8 @@ export default function CostcoRewardLander() {
         @keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,.6); } 50% { box-shadow: 0 0 0 7px rgba(74,222,128,0); } }
 
         .t-card { transition: transform .25s cubic-bezier(.16,1,.3,1), border-color .25s ease, box-shadow .25s ease; }
-        .t-card:hover { transform: translateY(-6px); border-color: rgba(0,74,138,.35); box-shadow: 0 18px 44px rgba(0,74,138,.12); }
-        .t-rail-fill { background: linear-gradient(180deg, #1D6BB5, #004A8A); }
+        .t-card:hover { transform: translateY(-6px); border-color: rgba(0,74,138,.4); box-shadow: 0 18px 44px rgba(0,74,138,.14); }
+        .t-rail-fill { background: linear-gradient(180deg, #3D91D6, #004A8A); }
 
         .spark { position: absolute; bottom: -12px; border-radius: 9999px; background: rgba(255,255,255,.75); animation: sparkRise linear infinite; }
         @keyframes sparkRise {
@@ -241,29 +262,18 @@ export default function CostcoRewardLander() {
       {/* ── HERO ────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden"
-        style={{ background: `linear-gradient(170deg, ${BLUE_BRIGHT} 0%, ${BLUE} 45%, ${BLUE_DEEP} 100%)` }}
+        style={{ background: `linear-gradient(170deg, ${COSTCO_BRIGHT} 0%, ${COSTCO} 45%, ${COSTCO_DEEP} 100%)` }}
       >
-        <div className="orb w-96 h-96 -top-24 -left-24" style={{ backgroundColor: "#3D82BC" }} />
-        <div
-          className="orb w-80 h-80 top-1/3 -right-20"
-          style={{ backgroundColor: "#002B52", animationDelay: "-6s" }}
-        />
+        <div className="orb w-96 h-96 -top-24 -left-24" style={{ backgroundColor: "#9DC7EC" }} />
+        <div className="orb w-80 h-80 top-1/3 -right-20" style={{ backgroundColor: "#001A33", animationDelay: "-6s" }} />
         <div className="drifter left-[8%] top-[30%]">
-          <Icon
-            d="M12 3l2.2 4.9L19 9l-4 3.4 1.3 5.1L12 14.8 7.7 17.5 9 12.4 5 9l4.8-1.1z"
-            color="#fff"
-            className="w-8 h-8"
-          />
+          <Icon d={CART_ICON} color="#fff" className="w-9 h-9" />
         </div>
         <div className="drifter right-[10%] top-[18%]" style={{ animationDelay: "-3s" }}>
-          <Icon
-            d="M3 10h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z M12 10v11 M3 14h18"
-            color="#fff"
-            className="w-9 h-9"
-          />
+          <Icon d={TV_ICON} color="#fff" className="w-8 h-8" />
         </div>
         <div className="drifter left-[16%] bottom-[12%]" style={{ animationDelay: "-5s" }}>
-          <Icon d="M6 7h12l1 14H5L6 7z M9 7a3 3 0 016 0" color="#fff" className="w-8 h-8" />
+          <Icon d={TIRE_ICON} color="#fff" className="w-8 h-8" />
         </div>
 
         <div className="relative mx-auto max-w-3xl px-6 pt-12 pb-20 md:pt-20 md:pb-24 text-center">
@@ -272,26 +282,33 @@ export default function CostcoRewardLander() {
               <span className="w-2 h-2 rounded-full bg-green-400 pulse-dot" />
               Applications Open
             </span>
-            <h1 className="mt-6 font-black tracking-tight leading-[1.03] text-5xl md:text-6xl lg:text-7xl text-balance">
+            <h1 className="mt-6 font-black tracking-tight leading-[1.05] text-[1.86rem] min-[344px]:text-[2.06rem] min-[376px]:text-[2.27rem] min-[408px]:text-[2.47rem] min-[440px]:text-[2.67rem] min-[472px]:text-[2.87rem] min-[504px]:text-[3.07rem] min-[536px]:text-[3.28rem] min-[568px]:text-[3.48rem] min-[600px]:text-[3.68rem] min-[632px]:text-[3.88rem] min-[664px]:text-[4.08rem] min-[696px]:text-[4.29rem] min-[728px]:text-[4.55rem] text-balance">
               {"The Costco Discounts They Don't Advertise"}
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/85 max-w-xl mx-auto leading-relaxed text-pretty">
-              Discover how members are unlocking hidden discount codes on bulk essentials, electronics, home items, and
-              everyday needs.
+                Discover how members are unlocking hidden discount codes on bulk groceries and pantry staples, electronics
+                and TVs, home and furniture, and gas, tires, and auto care.
             </p>
             <div className="mt-9 flex items-center justify-center gap-x-5 gap-y-9 flex-wrap">
               <CTAButton large>Apply Now</CTAButton>
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
                   {AVATARS.map((a) => (
-                    <Image
+                    <span
                       key={a.src}
-                      src={a.src || "/placeholder.svg"}
-                      alt={a.alt}
-                      width={72}
-                      height={72}
-                      className="w-9 h-9 rounded-full border-2 border-white/60 object-cover"
-                    />
+                      className="block w-9 h-9 rounded-full border-2 border-white/60 overflow-hidden shrink-0"
+                      style={{ backgroundColor: COSTCO_BRIGHT }}
+                    >
+                      <img
+                        src={a.src || "/placeholder.svg"}
+                        alt={a.alt}
+                        width={160}
+                        height={160}
+                        loading="eager"
+                        decoding="async"
+                        className="w-full h-full object-cover text-transparent"
+                      />
+                    </span>
                   ))}
                 </div>
                 <span className="text-white/80 text-sm leading-tight max-w-[200px] text-left">
@@ -307,7 +324,7 @@ export default function CostcoRewardLander() {
       <section className="relative overflow-hidden bg-white">
         <div className="relative mx-auto max-w-5xl px-6 py-16 md:py-20">
           <div className="text-center">
-            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: BLUE }}>
+            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: COSTCO }}>
               How it works
             </div>
             <h2 className="mt-3 font-black tracking-tight text-3xl md:text-5xl text-balance">
@@ -336,7 +353,7 @@ export default function CostcoRewardLander() {
       <section style={{ backgroundColor: "#F7F7F8" }}>
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 text-center">
           <div>
-            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: BLUE }}>
+            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: COSTCO }}>
               Unlock rewards
             </div>
             <h2 className="mt-3 font-black tracking-tight text-3xl md:text-5xl text-balance">
@@ -358,7 +375,7 @@ export default function CostcoRewardLander() {
                 </span>
                 <div
                   className="cat-icon w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center"
-                  style={{ backgroundColor: "#E3EDF6" }}
+                  style={{ backgroundColor: "#E2EEFA" }}
                 >
                   <div className="icon-bob" style={{ animationDelay: `${i * 0.6}s` }}>
                     <Icon d={c.icon} className="w-7 h-7" />
@@ -378,7 +395,7 @@ export default function CostcoRewardLander() {
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-16 md:py-20 text-center">
           <div>
-            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: BLUE }}>
+            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: COSTCO }}>
               Questions &amp; answers
             </div>
             <h2 className="mt-3 font-black tracking-tight text-3xl md:text-5xl text-balance">
@@ -398,7 +415,7 @@ export default function CostcoRewardLander() {
                   <span className="font-bold text-lg">{f.q}</span>
                   <span
                     className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200"
-                    style={{ backgroundColor: openFaq === i ? BLUE : "#F2F3F5" }}
+                    style={{ backgroundColor: openFaq === i ? COSTCO : "#F2F3F5" }}
                   >
                     <svg
                       viewBox="0 0 20 20"
@@ -430,7 +447,7 @@ export default function CostcoRewardLander() {
       {/* ── FINALE ──────────────────────────────────────── */}
       <section
         className="relative overflow-hidden"
-        style={{ background: `linear-gradient(170deg, ${BLUE_BRIGHT} 0%, ${BLUE} 50%, ${BLUE_DEEP} 100%)` }}
+        style={{ background: `linear-gradient(170deg, ${COSTCO_BRIGHT} 0%, ${COSTCO} 50%, ${COSTCO_DEEP} 100%)` }}
       >
         {[
           { l: "6%", s: 5, d: 7, delay: 0 },
@@ -455,10 +472,10 @@ export default function CostcoRewardLander() {
             aria-hidden="true"
           />
         ))}
-        <div className="orb w-96 h-96 -top-24 -left-24" style={{ backgroundColor: "#5497CC", opacity: 0.35 }} />
+        <div className="orb w-96 h-96 -top-24 -left-24" style={{ backgroundColor: "#BFDAF2", opacity: 0.35 }} />
         <div
           className="orb w-80 h-80 -bottom-24 -right-16"
-          style={{ backgroundColor: "#002B52", animationDelay: "-5s" }}
+          style={{ backgroundColor: "#001A33", animationDelay: "-5s" }}
         />
 
         <div className="relative mx-auto max-w-4xl px-6 py-20 md:py-28 text-center text-white">
@@ -471,8 +488,8 @@ export default function CostcoRewardLander() {
               Ready to Start Saving?
             </h2>
             <p className="mt-4 text-white/85 text-lg max-w-xl mx-auto leading-relaxed text-pretty">
-              Join thousands of members who have already claimed their discount code. Your savings are just a few
-              clicks away.
+              Join thousands of members who have already claimed their discount code. Your savings are just a few clicks
+              away.
             </p>
           </div>
 
