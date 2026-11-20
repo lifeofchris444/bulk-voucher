@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 
-const AFFILIATE_LINK = "https://trksy.org/aff_c?offer_id=4452&aff_id=26188"
+const AFFILIATE_LINK = "https://linkthem.net/?offer_id=4452&aff_id=26188"
 
 const COSTCO = "#004A8A"
 const COSTCO_DEEP = "#001A33"
 const COSTCO_BRIGHT = "#3D91D6"
+const HOLIDAY_RED = "#C8102E"
 const INK = "#111213"
 
 const STEPS = [
@@ -28,46 +29,47 @@ const STEPS = [
   },
   {
     t: "Receive your discount",
-    d: "Delivered straight to your inbox.",
+    d: "Delivered straight to your inbox, just in time for the holidays.",
     icon: "M8 21h8 M12 17v4 M7 4h10v5a5 5 0 01-10 0V4z M7 6H4v1a4 4 0 004 4 M17 6h3v1a4 4 0 01-4 4",
   },
 ]
 
-const CART_ICON =
-  "M2.5 4.5h2.7l3 11.2h10 M6.9 7.8h13.9l-1.9 6.4H8.6 M11.6 17.8a1.5 1.5 0 100 3 1.5 1.5 0 000-3 M17.8 17.8a1.5 1.5 0 100 3 1.5 1.5 0 000-3"
-
 const TV_ICON = "M3 5.2h18v10.6H3z M9 19.4h6 M12 15.8v3.6"
 
-const SOFA_ICON =
-  "M4 18.6v-5.4a2 2 0 014 0v2.4h8v-2.4a2 2 0 014 0v5.4z M6.2 13.2V9.8a2.2 2.2 0 012.2-2.2h7.2a2.2 2.2 0 012.2 2.2v3.4"
+// Steam vents keep the pie from reading as a bowl or cloche at small sizes.
+const PIE_ICON =
+  "M3 14.5h18 M4.5 14.5l1.5 4h12l1.5-4 M4.5 14.5c.8-4 4-6.5 7.5-6.5s6.7 2.5 7.5 6.5 M9 11.8l1 1 M14 11.8l-1 1 M12 10.5v1.4"
 
-const TIRE_ICON =
-  "M12 3.4a8.6 8.6 0 100 17.2 8.6 8.6 0 000-17.2 M12 8.2a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6 M12 3.4v4.8 M12 15.8v4.8 M3.4 12h4.8 M15.8 12h4.8 M14.7 14.7l3.4 3.4 M9.3 14.7l-3.4 3.4 M14.7 9.3l3.4-3.4 M9.3 9.3L5.9 5.9"
+const GIFT_ICON =
+  "M3.5 8.5h17v4h-17z M5 12.5v8h14v-8 M12 8.5v12 M12 8.5c-2.6 0-4.5-.9-4.5-2.6 0-1.6 2-2.4 4.5 2.6 M12 8.5c2.6 0 4.5-.9 4.5-2.6 0-1.6-2-2.4-4.5 2.6"
 
-// Fuel pump: body + base + display window + hose arm. Gas leads the category title, so this
-// replaces the wheel on the card (the wheel still drifts in the hero background).
+const SNOWFLAKE_ICON =
+  "M12 3v18 M4.2 7.5l15.6 9 M4.2 16.5l15.6-9 M9.6 4.6L12 6.2l2.4-1.6 M9.6 19.4L12 17.8l2.4 1.6"
+
+const TAG_ICON = "M3.5 12.2V4.5a1 1 0 011-1h7.7l8.3 8.3a1.4 1.4 0 010 2l-6.7 6.7a1.4 1.4 0 01-2 0z M8 8h.01"
+
 const FUEL_ICON =
   "M5.4 20.6V5.2a2 2 0 012-2h5.6a2 2 0 012 2v15.4 M3.6 20.6h13.2 M8 7h4.4v3.2H8z M8 13.6h4.4 M15 10.4h2.4a2 2 0 012 2v4.8a1.6 1.6 0 003.2 0v-6.4"
 
 const CATEGORIES = [
   {
-    t: "Bulk Groceries & Pantry",
-    d: "Pantry staples, snacks, coffee, paper goods, and multi-pack essentials.",
-    icon: CART_ICON,
+    t: "Thanksgiving Dinner & Groceries",
+    d: "Turkeys, roasts, pies, sides, baking staples, and bulk pantry essentials for the whole table.",
+    icon: PIE_ICON,
   },
   {
-    t: "Electronics & TVs",
-    d: "4K televisions, laptops, tablets, headphones, and smart home devices.",
+    t: "Black Friday TVs & Tech",
+    d: "4K televisions, laptops, tablets, headphones, and smart home devices at Black Friday prices.",
     icon: TV_ICON,
   },
   {
-    t: "Home & Furniture",
-    d: "Mattresses, patio sets, kitchen appliances, and living room seating.",
-    icon: SOFA_ICON,
+    t: "Christmas Gifts & Toys",
+    d: "Toys, games, gift sets, holiday decor, and stocking stuffers for everyone on your list.",
+    icon: GIFT_ICON,
   },
   {
-    t: "Gas, Tires & Auto Care",
-    d: "Discounted fuel at the pump, tire installation, batteries, and rotation service.",
+    t: "Holiday Travel Gas & Auto Care",
+    d: "Discounted fuel for holiday road trips, plus tires, batteries, and winter-ready auto service.",
     icon: FUEL_ICON,
   },
 ]
@@ -233,7 +235,7 @@ export default function CostcoRewardLander() {
         @keyframes cardShine { 0%, 55% { background-position: 135% 0; } 85%, 100% { background-position: -60% 0; } }
         .icon-bob { animation: iconBob 4.5s ease-in-out infinite; }
         @keyframes iconBob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-5px) rotate(-5deg); } }
-        .cat-spark { position: absolute; top: 16px; right: 18px; color: #004A8A; animation: sparkTwinkle 3.4s ease-in-out infinite; }
+        .cat-spark { position: absolute; top: 16px; right: 18px; color: #C8102E; animation: sparkTwinkle 3.4s ease-in-out infinite; }
         @keyframes sparkTwinkle { 0%, 100% { transform: scale(.75) rotate(0deg); opacity: .15; } 50% { transform: scale(1.2) rotate(25deg); opacity: .45; } }
 
         .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s cubic-bezier(.16,1,.3,1); }
@@ -265,15 +267,18 @@ export default function CostcoRewardLander() {
         style={{ background: `linear-gradient(170deg, ${COSTCO_BRIGHT} 0%, ${COSTCO} 45%, ${COSTCO_DEEP} 100%)` }}
       >
         <div className="orb w-96 h-96 -top-24 -left-24" style={{ backgroundColor: "#9DC7EC" }} />
-        <div className="orb w-80 h-80 top-1/3 -right-20" style={{ backgroundColor: "#001A33", animationDelay: "-6s" }} />
+        <div
+          className="orb w-80 h-80 top-1/3 -right-20"
+          style={{ backgroundColor: HOLIDAY_RED, opacity: 0.35, animationDelay: "-6s" }}
+        />
         <div className="drifter left-[8%] top-[30%]">
-          <Icon d={CART_ICON} color="#fff" className="w-9 h-9" />
+          <Icon d={SNOWFLAKE_ICON} color="#fff" className="w-9 h-9" />
         </div>
         <div className="drifter right-[10%] top-[18%]" style={{ animationDelay: "-3s" }}>
-          <Icon d={TV_ICON} color="#fff" className="w-8 h-8" />
+          <Icon d={GIFT_ICON} color="#fff" className="w-8 h-8" />
         </div>
         <div className="drifter left-[16%] bottom-[12%]" style={{ animationDelay: "-5s" }}>
-          <Icon d={TIRE_ICON} color="#fff" className="w-8 h-8" />
+          <Icon d={TAG_ICON} color="#fff" className="w-8 h-8" />
         </div>
 
         <div className="relative mx-auto max-w-3xl px-6 pt-12 pb-20 md:pt-20 md:pb-24 text-center">
@@ -286,8 +291,8 @@ export default function CostcoRewardLander() {
               {"The Costco Discounts They Don't Advertise"}
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/85 max-w-xl mx-auto leading-relaxed text-pretty">
-                Discover how members are unlocking hidden discount codes on bulk groceries and pantry staples, electronics
-                and TVs, home and furniture, and gas, tires, and auto care.
+                Discover how members are unlocking hidden discount codes on Thanksgiving dinner, Black Friday TVs and
+                tech, Christmas gifts and toys, and holiday travel this season.
             </p>
             <div className="mt-9 flex items-center justify-center gap-x-5 gap-y-9 flex-wrap">
               <CTAButton large>Apply Now</CTAButton>
@@ -353,11 +358,11 @@ export default function CostcoRewardLander() {
       <section style={{ backgroundColor: "#F7F7F8" }}>
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 text-center">
           <div>
-            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: COSTCO }}>
-              Unlock rewards
+            <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: HOLIDAY_RED }}>
+              Holiday savings
             </div>
             <h2 className="mt-3 font-black tracking-tight text-3xl md:text-5xl text-balance">
-              What You Can Do With Your Discount
+              What You Can Do With Your Discount This Holiday Season
             </h2>
           </div>
 
@@ -475,7 +480,7 @@ export default function CostcoRewardLander() {
         <div className="orb w-96 h-96 -top-24 -left-24" style={{ backgroundColor: "#BFDAF2", opacity: 0.35 }} />
         <div
           className="orb w-80 h-80 -bottom-24 -right-16"
-          style={{ backgroundColor: "#001A33", animationDelay: "-5s" }}
+          style={{ backgroundColor: HOLIDAY_RED, opacity: 0.35, animationDelay: "-5s" }}
         />
 
         <div className="relative mx-auto max-w-4xl px-6 py-20 md:py-28 text-center text-white">
@@ -485,11 +490,11 @@ export default function CostcoRewardLander() {
               Applications Open
             </span>
             <h2 className="mt-6 font-black tracking-tight text-4xl md:text-6xl leading-[1.05] text-balance">
-              Ready to Start Saving?
+              Ready to Start Saving This Holiday Season?
             </h2>
             <p className="mt-4 text-white/85 text-lg max-w-xl mx-auto leading-relaxed text-pretty">
-              Join thousands of members who have already claimed their discount code. Your savings are just a few clicks
-              away.
+              Join thousands of members who have already claimed their discount code. Your holiday savings are just a few
+              clicks away.
             </p>
           </div>
 
